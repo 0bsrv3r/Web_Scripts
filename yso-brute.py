@@ -1,7 +1,6 @@
-"""
-Usage: $ python2.7 yso-brute.py 2>/dev/null 
-
-"""
+#
+# Usage: $ python2.7 yso-brute.py 2>/dev/null 
+#
 
 import os 
 import base64 
